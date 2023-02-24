@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInscripcionesTable extends Migration
+class CreateInscripcionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,15 +16,14 @@ class CreateInscripcionesTable extends Migration
         Schema::create('inscripciones', function (Blueprint $table) {
             $table->id();
             $table->foreignId('curso_id')
-                ->constrained('cursos')
-                ->onDelete('cascade');
+                ->constrained('cursos');
             $table->foreignId('user_id')
-                ->constrained('users')
-                ->onDelete('cascade');
+                ->constrained('users');
             $table->float('nota_media');
             $table->integer('progreso_medio');
-            $table->boolean('superado');
+            $table->boolean('superado')->default(false);
         });
+
     }
 
     /**
@@ -35,6 +34,6 @@ class CreateInscripcionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inscripciones');
+        Schema::dropIfExists('inscripcions');
     }
 }

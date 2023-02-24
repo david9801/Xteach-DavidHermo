@@ -39,7 +39,7 @@ class User extends Authenticatable
     ];
     //aqui defino la relacion uno a muchos
     //un usuario(alumno) puede tener varias inscripciones
-    public function inscripciones(){
+    public function inscripcions(){
         return $this->hasMany(Inscripcion::class,'user_id');
     }
 }
