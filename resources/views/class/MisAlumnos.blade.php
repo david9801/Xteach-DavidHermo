@@ -1,34 +1,45 @@
 @extends('layout.app')
-@section('title', 'Welcome')
+@section('title', 'Cursos creados por el admin')
 @section('content')
 
-    <div >
-        @foreach ($cursos as $curso)
-            <h3>{{ $curso->nombre }}</h3>
-            <table>
-                <thead>
+    <div id="div-welcome">
+        <h2>Cursos creados por el usuario</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Inscripciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach ($cursos as $curso)
                 <tr>
-                    <th>ID</th>
-                    <th>Usuario</th>
-                    <th>Nota Media</th>
-                    <th>Progreso Medio</th>
-                    <th>Superado</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach ($curso->inscripciones as $inscripcion)
-                    <tr>
-                        <td>{{ $inscripcion->id }}</td>
-                        <td>{{ $inscripcion->user->name }}</td>
-                        <td>{{ $inscripcion->nota_media }}</td>
-                        <td>{{ $inscripcion->progreso_medio }}</td>
-                        <td>{{ $inscripcion->superado ? 'Sí' : 'No' }}</td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        @endforeach
+                    <td>{{ $curso->id }}</td>
+                    <td>{{ $curso->name }}</td>
+                    <td>{{ $curso->temas }}</td>
+                    <td>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    @foreach ($curso->inscripcions as $inscripcion)
 
+                                            <td>{{ $inscripcion->user_id}}</td>
+                                    @endforeach
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
 
 @endsection

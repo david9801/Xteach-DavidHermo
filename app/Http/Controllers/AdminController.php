@@ -21,18 +21,12 @@ class AdminController extends Controller
     }
 
 
-
     public function index()
     {
-        // Obtén el usuario actual
-        $user = Auth::user();
-
-        // Obtén los cursos asociados con el usuario actual junto con sus inscripciones
-        $cursos = $user->cursos()->with('inscripciones')->get();
-
-        return view('class.MisCursosCreados', compact('cursos'));
+        //para mostrar los alumnos de un admin(profesor)
+        $cursos = Curso::where('user_id', Auth::user()->id)->get();
+        $alumnos = User::all();
+        $inscripciones = Inscripcion::all();
+        return view('class.MisAlumnos', compact('cursos', 'alumnos', 'inscripciones'));
     }
-
-
-
 }
