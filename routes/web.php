@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\CursoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,4 +25,11 @@ Route::resource('session',SessionsController::class);
 Route::post('do-login',[SessionsController::class,'doLogin'])->name('dologin');
 Route::post('log-out',[SessionsController::class,'logout'])->name('logout')->middleware('auth');
 
+Route::get('showcursos',[CursoController::class,'index'])->name('curso.index')->middleware('auth');
+Route::get('/goto-addcurso', function () {
+    return view('class.AñadirCurso');
+})->name('goto-add-curso');
+Route::post('add-curso',[CursoController::class,'create'])->name('createCurso')->middleware('auth');
+Route::post('/curso-inscribirse', [CursoController::class, 'inscribirse'])->name('curso.inscribirse')->middleware('auth');
 
+Route::get('show-my-cursos',[CursoController::class,'showmycursos'])->name('show')->middleware('auth');

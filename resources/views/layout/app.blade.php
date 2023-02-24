@@ -26,7 +26,7 @@
     <div  class="bg-light1 d-flex flex-column min-vh-100" id="content" >
         <nav class="navbar navbar-dark bg-dark fixed-top" >
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{route('welcome')}}"> Streaming with raspberry <i class="bi bi-calendar-plus"></i></a>
+                <a class="navbar-brand" href="{{route('welcome')}}"> XTEACH LEARN WITH US <i class="bi bi-calendar-plus"></i></a>
                     @auth
                         <form action="{{route('logout')}}" method="POST" class="text-center">
                             <button type="submit" class="btn btn-light" > <i class="fa-solid fa-right-from-bracket"> Log Out {{Auth::user()->name}}</i> </button>
@@ -46,34 +46,41 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{route('welcome')}}"> <i class="bi bi-house-door-fill"></i>   Inicio </a>
                             </li>
+                            @auth()
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">  <i class="bi bi-eyeglasses"></i>  Sobre Nosotros</a>
+                                <a class="nav-link active" aria-current="page" href="{{route('curso.index')}}">  <i class="bi bi-eyeglasses"></i>  Cursos Disponibles</a>
                             </li>
+                            @endauth
                             <li class="nav-item dropdown" aria-current="page">
                                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"> <i class="bi bi-people-fill"></i>  Users   </a>
                                     <ul class="dropdown-menu dropdown-menu-dark" aria-current="page">
-                                        @guest()
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" aria-current="page" href="{{route('register.create')}}">  Regístrate como Alumno </a>
-                                                </li>
+                                            @guest()
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" aria-current="page" href="{{route('register.create')}}">  Regístrate como Alumno </a>
+                                                    </li>
 
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" aria-current="page" href="{{route('register.create.admin')}}">  Registrate como Admin</a>
-                                                </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" aria-current="page" href="{{route('register.create.admin')}}">  Registrate como Admin</a>
+                                                    </li>
 
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" aria-current="page" href="{{route('session.create')}}">  Entra aquí  </a>
-                                                </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" aria-current="page" href="{{route('session.create')}}">  Entra aquí  </a>
+                                                    </li>
 
-                                        @endguest
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">  Admin </a>
-                                                </li>
+                                            @endguest
+
+                                            @auth()
+                                                    @if(auth()->user()->hasRole('admin'))
+                                                        <li class="nav-item">
+                                                            <a class="nav-link active" aria-current="page" href="{{route('goto-add-curso')}}">  Añadir Curso para admins </a>
+                                                        </li>
+                                                    @endif
+                                            @endauth
                                                 <li class="nav-item">
                                                     <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">  Ver Mi Perfil </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">  Próximas Clases </a>
+                                                    <a class="nav-link active" aria-current="page" href="{{route('show')}}">  Mis cursos </a>
                                                 </li>
 
                                                 <li class="nav-item">

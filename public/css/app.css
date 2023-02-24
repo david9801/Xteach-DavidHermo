@@ -15,9 +15,11 @@
     align-items: center;
 }
 
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="number"],
 input[type="checkbox"] {
     background-color: #7f9bb6;
 }
