@@ -21,12 +21,9 @@ class CursoController extends Controller
     {
         // Obtén el usuario actual
         $user = Auth::user();
-
         //inscripciones del usuario actual, que viene dado por la funcion de la relacion
         //hasmany del modelo user
         $inscripciones = $user->inscripcions;
-        //tambien es util mandar los cursos para mostrar el nombre y la cantidad de temas
-        //no es lo mas eficiente mandar todos los cursos
         return view('class.MisCursos')->with('inscripciones', $inscripciones);
     }
 
