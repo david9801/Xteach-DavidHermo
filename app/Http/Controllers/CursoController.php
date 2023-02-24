@@ -25,8 +25,10 @@ class CursoController extends Controller
         //inscripciones del usuario actual, que viene dado por la funcion de la relacion
         //hasmany del modelo user
         $inscripciones = $user->inscripcions;
-
-        return view('class.MisCursos', compact('inscripciones'));
+        //tambien es util mandar los cursos para mostrar el nombre y la cantidad de temas
+        //no es lo mas eficiente mandar todos los cursos
+        $cursos=Curso::all();
+        return view('class.MisCursos', compact('inscripciones','cursos'));
     }
 
     public function create(Request $request)
@@ -67,4 +69,21 @@ class CursoController extends Controller
         $inscripcion->save();
         return redirect()->route('welcome');
     }
+    public function doingcurso(Request $request, $id)
+    {
+        $inscripcion = Inscripcion::find($id);
+        $inscripcion->nota_media = $request->input('nota_media');
+        $inscripcion->progreso_medio = $request->input('progreso_medio');
+
+        $curso = Curso::find($inscripcion->curso_id);
+        if ($inscripcion->progreso_medio >= $curso->temas) {
+            $inscripcion->superado = true;
+        } else {
+            $inscripcion->superado = false;
+        }
+
+        $inscripcion->save();
+        return redirect()->back();
+    }
+
 }

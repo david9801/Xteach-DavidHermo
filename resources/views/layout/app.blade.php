@@ -47,9 +47,11 @@
                                 <a class="nav-link active" aria-current="page" href="{{route('welcome')}}"> <i class="bi bi-house-door-fill"></i>   Inicio </a>
                             </li>
                             @auth()
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{route('curso.index')}}">  <i class="bi bi-eyeglasses"></i>  Cursos Disponibles</a>
-                            </li>
+                                @if(auth()->user()->hasRole('alumno'))
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="{{route('curso.index')}}">  <i class="bi bi-eyeglasses"></i>  Cursos Disponibles</a>
+                                    </li>
+                                @endif
                             @endauth
                             <li class="nav-item dropdown" aria-current="page">
                                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"> <i class="bi bi-people-fill"></i>  Users   </a>
@@ -69,23 +71,27 @@
 
                                             @endguest
 
-                                            @auth()
+                                                 @auth()
                                                     @if(auth()->user()->hasRole('admin'))
                                                         <li class="nav-item">
                                                             <a class="nav-link active" aria-current="page" href="{{route('goto-add-curso')}}">  Añadir Curso para admins </a>
                                                         </li>
-                                                    @endif
-                                            @endauth
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">  Ver Mi Perfil </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" aria-current="page" href="{{route('show')}}">  Mis cursos </a>
-                                                </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link active" aria-current="page" href="{{route('goto-add-curso')}}">  Mostrar alumnos </a>
+                                                        </li>
 
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">  Ver Asignaturas</a>
-                                                </li>
+                                                    @endif
+                                                @endauth
+                                                @auth()
+                                                    @if(auth()->user()->hasRole('alumno'))
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">  Ver Mi Perfil </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" aria-current="page" href="{{route('show')}}">  Mis cursos Matriculados </a>
+                                                    </li>
+                                                    @endif
+                                                @endauth
                                 </ul>
                             </li>
                         </ul>

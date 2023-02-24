@@ -33,3 +33,5 @@ Route::post('add-curso',[CursoController::class,'create'])->name('createCurso')-
 Route::post('/curso-inscribirse', [CursoController::class, 'inscribirse'])->name('curso.inscribirse')->middleware('auth');
 
 Route::get('show-my-cursos',[CursoController::class,'showmycursos'])->name('show')->middleware('auth');
+
+Route::PUT('do-it/{id}',[CursoController::class,'doingcurso'])->name('gocurso')->middleware('auth');
