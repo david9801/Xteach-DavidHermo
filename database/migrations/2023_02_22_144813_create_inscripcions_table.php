@@ -13,15 +13,15 @@ class CreateInscripcionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inscripciones', function (Blueprint $table) {
+        Schema::create('inscripcions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('curso_id')
                 ->constrained('cursos');
             $table->foreignId('user_id')
                 ->constrained('users');
-            $table->float('nota_media');
-            $table->integer('progreso_medio');
-            $table->boolean('superado')->default(false);
+            $table->float('nota_media')->nullable();
+            $table->integer('progreso_medio')->nullable();
+            $table->boolean('superado')->default(false)->nullable();
         });
 
     }
