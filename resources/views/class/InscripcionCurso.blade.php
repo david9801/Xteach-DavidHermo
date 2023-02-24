@@ -44,7 +44,15 @@
             <button type="submit" class="btn btn-primary">Inscribirse</button>
         </form>
 
-
+        @if ($errors->any())
+            <div class="alert alert-danger d-flex justify-content-center">
+                <ul class="text-center">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 @endsection
 
