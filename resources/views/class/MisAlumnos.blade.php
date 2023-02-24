@@ -7,18 +7,14 @@
         <table class="table">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Nombre</th>
-                <th>Descripción</th>
                 <th>Inscripciones</th>
             </tr>
             </thead>
             <tbody>
             @foreach ($cursos as $curso)
                 <tr>
-                    <td>{{ $curso->id }}</td>
                     <td>{{ $curso->name }}</td>
-                    <td>{{ $curso->temas }}</td>
                     <td>
                         <table class="table">
                             <thead>
