@@ -39,3 +39,10 @@ Route::PUT('do-it/{id}',[CursoController::class,'doingcurso'])->name('gocurso')-
 
 Route::get('show-cursos-admin',[AdminController::class,'show'])->name('showcursosadmin')->middleware('auth');
 Route::get('show-alumnos-admin',[AdminController::class,'index'])->name('showalumnosadmin')->middleware('auth');
+
+
+    Route::get('/goto-myprofile', function () {
+        return view('users.ViewProfile');
+    })->name('miperfil')->middleware('auth');
+
+Route::get('/mis-cursos-superados',[CursoController::class,'showmycursossuperados'])->name('miperfil')->middleware('auth');

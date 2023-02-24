@@ -2,13 +2,18 @@
 @section('title', 'Ver perfil')
 @section('content')
 
-    <div style="margin-top: 80px; text-align: center; ">
-        @if(!is_null(Auth::user()->profile_image))
-            <img src="{{ asset('storage/'.Auth::user()->profile_image) }}" alt="Profile Image" width="250" height="250" style="border: 3px solid gray;border-radius: 90%;">
+    <div style="margin-top: 110px; text-align: center; ">
+        <p>Aqui mostrare datos que le pueden resultar de interes al alumno</p>
+        <h2>Cursos superados:</h2>
+        @if (count($cursosNombres) > 0)
+            <ul>
+                @foreach ($cursosNombres as $nombre)
+                    <li>{{ $nombre }}</li>
+                @endforeach
+            </ul>
+        @else
+            <p>No ha superado ningún curso.</p>
         @endif
-    </div>
-    <div>
-        <h2>Aqui mostraré las clases del alumno y otros datos</h2>
     </div>
 
 @endsection

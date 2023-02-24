@@ -88,7 +88,7 @@
                                                 @auth()
                                                     @if(auth()->user()->hasRole('alumno'))
                                                     <li class="nav-item">
-                                                        <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">  Ver Mi Perfil </a>
+                                                        <a class="nav-link active" aria-current="page" href="{{route('miperfil')}}">  Ver Mi Perfil </a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link active" aria-current="page" href="{{route('show')}}">  Mis cursos Matriculados </a>

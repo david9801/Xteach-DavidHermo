@@ -50,6 +50,7 @@ class CursoController extends Controller
     }
     public function inscribirse(Request $request)
     {
+        //metodo para que un alumno se inscriba en un curso
         $user_id = Auth::user()->id;
         $curso_id = $request->curso_id;
         // Busca una inscripción con el user_id y el curso_id
@@ -70,6 +71,7 @@ class CursoController extends Controller
     }
     public function doingcurso(Request $request, $id)
     {
+        //metodo para realizar las acciones necesarias para que un alumno supere un curso
         $inscripcion = Inscripcion::find($id);
         $inscripcion->nota_media = $request->input('nota_media');
         $inscripcion->progreso_medio = $request->input('progreso_medio');
@@ -84,5 +86,24 @@ class CursoController extends Controller
         $inscripcion->save();
         return redirect()->back();
     }
+
+
+    public function showmycursossuperados()
+    {
+        //funcion para mostrar en una vista los cursos superados por el alumno
+        $user = Auth::user();
+        //inscripciones del usuario(alumno) que han sido superadas
+        $inscripciones = $user->inscripcions()->where('superado', true)->get();
+
+        // Obtén los nombres de los cursos correspondientes a las inscripciones
+        $cursosNombres = [];
+        foreach ($inscripciones as $inscripcion) {
+            $cursoNombre = $inscripcion->curso->name;
+            $cursosNombres[] = $cursoNombre;
+        }
+
+        return view('users.ViewProfile', compact('cursosNombres'));
+    }
+
 
 }
