@@ -9,6 +9,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasRoles;
+    //se ha añadido el paquete spatie, para permisos y roles, los cuales uso en mi modelo User
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +37,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    //aqui defino la relacion uno a muchos
+    //un usuario(alumno) puede tener varias inscripciones
+    public function inscripciones(){
+        return $this->hasMany(Inscripcion::class,'user_id');
+    }
 }

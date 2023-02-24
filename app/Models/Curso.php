@@ -13,5 +13,9 @@ class Curso extends Model
         'name',
         'temas',
     ];
-
+    //aqui defino relacion uno a muchos, un curso puede tener varias inscripciones, pues es de diferentes alumnos
+    //cada inscripcion
+    public function inscripciones(){
+        return $this->hasMany(Inscripcion::class,'user_id');
+    }
 }
