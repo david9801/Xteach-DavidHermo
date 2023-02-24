@@ -27,9 +27,9 @@ class CursoController extends Controller
         $inscripciones = $user->inscripcions;
         //tambien es util mandar los cursos para mostrar el nombre y la cantidad de temas
         //no es lo mas eficiente mandar todos los cursos
-        $cursos=Curso::all();
-        return view('class.MisCursos', compact('inscripciones','cursos'));
+        return view('class.MisCursos')->with('inscripciones', $inscripciones);
     }
+
 
     public function create(Request $request)
     {
