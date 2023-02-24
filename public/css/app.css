@@ -1,0 +1,25 @@
+#content {
+    background-color: #4a5568;
+}
+
+
+#div-welcome {
+    margin-top: 100px;
+}
+
+#div-registerformadmin, #div-registerform, #div-loginform {
+    width: 40%;
+    margin: 130px auto;
+    overflow: hidden;
+    text-align: center;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="checkbox"] {
+    background-color: #7f9bb6;
+}
+
+
