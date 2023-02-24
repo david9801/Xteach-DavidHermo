@@ -22,17 +22,18 @@
                     <td>
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th>ID</th>
-                                </tr>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                            </tr>
                             </thead>
                             <tbody>
+                            @foreach ($curso->inscripcions as $inscripcion)
                                 <tr>
-                                    @foreach ($curso->inscripcions as $inscripcion)
-
-                                            <td>{{ $inscripcion->user_id}}</td>
-                                    @endforeach
+                                    <td>{{ $inscripcion->user_id }}</td>
+                                    <td>{{ $inscripcion->user->name }}</td>
                                 </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </td>
