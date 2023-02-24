@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +36,5 @@ Route::post('/curso-inscribirse', [CursoController::class, 'inscribirse'])->name
 Route::get('show-my-cursos',[CursoController::class,'showmycursos'])->name('show')->middleware('auth');
 
 Route::PUT('do-it/{id}',[CursoController::class,'doingcurso'])->name('gocurso')->middleware('auth');
+
+Route::get('show-Alumnos',[AdminController::class,'show'])->name('showalumnos')->middleware('auth');

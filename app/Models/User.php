@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','progresomedio','notamedia'
     ];
 
     /**
@@ -36,6 +36,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'graduado' => 'boolean'
     ];
     //aqui defino la relacion uno a muchos
     //un usuario(alumno) puede tener varias inscripciones

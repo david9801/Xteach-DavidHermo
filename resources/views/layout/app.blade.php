@@ -77,7 +77,7 @@
                                                             <a class="nav-link active" aria-current="page" href="{{route('goto-add-curso')}}">  Añadir Curso para admins </a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link active" aria-current="page" href="{{route('goto-add-curso')}}">  Mostrar alumnos </a>
+                                                            <a class="nav-link active" aria-current="page" href="{{route('showalumnos')}}">  Mostrar alumnos </a>
                                                         </li>
 
                                                     @endif
