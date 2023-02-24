@@ -2,41 +2,33 @@
 @section('title', 'Cursos creados por el admin')
 @section('content')
 
-    <div id="div-welcome">
+    <div class="container">
         <h2>Cursos creados por el usuario</h2>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Inscripciones</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach ($cursos as $curso)
-                <tr>
-                    <td>{{ $curso->name }}</td>
-                    <td>
-                        <table class="table">
-                            <thead>
+        @foreach ($cursos as $curso)
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h4>{{ $curso->name }}</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($curso->inscripcions as $inscripcion)
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
+                                <td>{{ $inscripcion->user_id }}</td>
+                                <td>{{ $inscripcion->user->name }}</td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($curso->inscripcions as $inscripcion)
-                                <tr>
-                                    <td>{{ $inscripcion->user_id }}</td>
-                                    <td>{{ $inscripcion->user->name }}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        @endforeach
     </div>
 
 @endsection
