@@ -25,7 +25,7 @@
             @foreach ($cursos as $row)
                 <tr>
                     <td>{{ $row->id }}</td>
-                    <td>{{ $row->nombre }}</td>
+                    <td>{{ $row->name }}</td>
                     <td>{{ $row->temas }}</td>
                 </tr>
             @endforeach
