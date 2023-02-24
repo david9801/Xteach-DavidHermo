@@ -44,8 +44,9 @@ class CursoController extends Controller
         //le pasamos el user_id a la tabla cursos para saber que cursos ha subido cada profesor
         $curso->user_id = Auth::user()->id;
         $curso->save();
-        //retornamos la ruta que devuelve la vista class.InscripcionCurso
-        return redirect()->route('curso.index');
+        //retornamos la ruta que devuelve la vista que muestra solo los cursos
+        //creados por un admin(profesor) en particular
+        return redirect()->route('showcursosadmin');
 
     }
     public function inscribirse(Request $request)

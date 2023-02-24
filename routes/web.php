@@ -41,8 +41,4 @@ Route::get('show-cursos-admin',[AdminController::class,'show'])->name('showcurso
 Route::get('show-alumnos-admin',[AdminController::class,'index'])->name('showalumnosadmin')->middleware('auth');
 
 
-    Route::get('/goto-myprofile', function () {
-        return view('users.ViewProfile');
-    })->name('miperfil')->middleware('auth');
-
 Route::get('/mis-cursos-superados',[CursoController::class,'showmycursossuperados'])->name('miperfil')->middleware('auth');

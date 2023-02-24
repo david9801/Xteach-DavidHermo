@@ -16,9 +16,11 @@ class AdminController extends Controller
         //como esta funcion solo se va a llegar si estas logueado
         //y ademas si eres admin unicamente
         $cursos = Curso::where('user_id', Auth::user()->id)->get();
-        return view('class.MisCursos', compact('cursos'));
+        return view('class.MisCursosCreados', compact('cursos'));
 
     }
+
+
 
     public function index()
     {
@@ -28,7 +30,7 @@ class AdminController extends Controller
         // Obtén los cursos asociados con el usuario actual junto con sus inscripciones
         $cursos = $user->cursos()->with('inscripciones')->get();
 
-        return view('class.MisCursos', compact('cursos'));
+        return view('class.MisCursosCreados', compact('cursos'));
     }
 
 

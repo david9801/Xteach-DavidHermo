@@ -79,9 +79,6 @@
                                                         <li class="nav-item">
                                                             <a class="nav-link active" aria-current="page" href="{{route('showcursosadmin')}}">  Mostrar Cursos Creados </a>
                                                         </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link active" aria-current="page" href="{{route('showalumnosadmin')}}">  Mostrar Mis Alumnos </a>
-                                                        </li>
 
                                                     @endif
                                                 @endauth
