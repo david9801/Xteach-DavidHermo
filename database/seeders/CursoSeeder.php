@@ -18,31 +18,36 @@ class CursoSeeder extends Seeder
         Curso::updateOrCreate(
             [
                 'name' => 'Design',
-                'temas' => '8'
+                'temas' => '8',
+                'user_id' =>'1'
             ]
         );
         Curso::updateOrCreate(
             [
                 'name' => 'Criminology',
-                'temas' => '45'
+                'temas' => '45',
+                'user_id' =>'1'
             ]
         );
         Curso::updateOrCreate(
             [
                 'name' => 'Computer Science',
-                'temas' => '25'
+                'temas' => '25',
+                'user_id' =>'1'
             ]
         );
         Curso::updateOrCreate(
             [
                 'name' => 'Creative Arts',
-                'temas' => '27'
+                'temas' => '27',
+                'user_id' =>'1'
             ]
         );
         Curso::updateOrCreate(
             [
                 'name' => 'Applied Science',
-                'temas' => '17'
+                'temas' => '17',
+                'user_id' =>'1'
             ]
         );
     }

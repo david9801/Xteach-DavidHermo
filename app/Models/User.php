@@ -43,4 +43,9 @@ class User extends Authenticatable
     public function inscripcions(){
         return $this->hasMany(Inscripcion::class,'user_id');
     }
+    public function cursos(){
+        return $this->hasMany(Cursos::class,'user_id');
+        //un profesor puede tener varios cursos creados
+    }
+
 }

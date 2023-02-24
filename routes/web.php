@@ -37,4 +37,5 @@ Route::get('show-my-cursos',[CursoController::class,'showmycursos'])->name('show
 
 Route::PUT('do-it/{id}',[CursoController::class,'doingcurso'])->name('gocurso')->middleware('auth');
 
-Route::get('show-Alumnos',[AdminController::class,'show'])->name('showalumnos')->middleware('auth');
+Route::get('show-cursos-admin',[AdminController::class,'show'])->name('showcursosadmin')->middleware('auth');
+Route::get('show-alumnos-admin',[AdminController::class,'index'])->name('showalumnosadmin')->middleware('auth');

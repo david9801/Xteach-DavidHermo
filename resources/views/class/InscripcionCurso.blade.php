@@ -31,6 +31,20 @@
             @endforeach
             </tbody>
         </table>
+        <form method="POST" action="{{ route('curso.inscribirse') }}" style="overflow: hidden; width: 15%;text-align: center;">
+            @csrf
+            <div class="form-group" >
+                <label for="curso_id">Selecciona un curso:</label>
+                <select class="form-control" id="curso_id" name="curso_id">
+                    @foreach ($cursos as $curso)
+                        <option value="{{ $curso->id }}">{{ $curso->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Inscribirse</button>
+        </form>
+
+
     </div>
 @endsection
 

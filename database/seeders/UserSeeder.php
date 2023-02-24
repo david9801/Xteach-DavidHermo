@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -15,55 +16,49 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::updateOrCreate(
-            [
-                'name' => 'Maria Teresa Montenegro Orta',
-                'email' => 'maria.teresa.montenegro.orta@not_mail.com',
-                'password' => Hash::make('123456')
-            ]
-        );
-        User::updateOrCreate(
-            [
-                'name' => 'Cesar Correa Solano',
-                'email' => 'cesar.correa.solano@not_mail.com',
-                'password' => Hash::make('123456')
-            ]
-        );
-        User::updateOrCreate(
-            [
-                'name' => 'Luz Correa Ontiveros',
-                'email' => 'luz.correa.ontiveros@not_mail.com',
-                'password' => Hash::make('123456')
-            ]
-        );
-        User::updateOrCreate(
-            [
-                'name' => 'Elvira Caballero Montemayor',
-                'email' => 'elvira.caballero.montemayor@not_mail.com',
-                'password' => Hash::make('123456')
-            ]
-        );
-        User::updateOrCreate(
-            [
-                'name' => 'Luis Miguel Apodaca Rael',
-                'email' => 'luis.miguel.apodaca.rael@not_mail.com',
-                'password' => Hash::make('123456')
-            ]
-        );
-        User::updateOrCreate(
-            [
-                'name' => 'Guadalupe Vela Fuentes',
-                'email' => 'guadalupe.vela.fuentes@not_mail.com',
-                'password' => Hash::make('123456')
-            ]
-        );
-        User::updateOrCreate(
-            [
-                'name' => 'Gregorio Sisneros',
-                'email' => 'gregorio.rios.sisneros@not_mail.com',
-                'password' => Hash::make('123456')
-            ]
-        );
+        $user = User::updateOrCreate([
+            'name' => 'Maria Teresa Montenegro Orta',
+            'email' => 'maria.teresa.montenegro.orta@notmail.com',
+            'password' => Hash::make('123456')
+        ]);
 
+        $role = Role::where('name', 'admin')->first();
+        $user->assignRole($role);
+
+        User::updateOrCreate([
+            'name' => 'Cesar Correa Solano',
+            'email' => 'cesar.correa.solano@not_mail.com',
+            'password' => Hash::make('123456')
+        ]);
+
+        User::updateOrCreate([
+            'name' => 'Luz Correa Ontiveros',
+            'email' => 'luz.correa.ontiveros@not_mail.com',
+            'password' => Hash::make('123456')
+        ]);
+
+        User::updateOrCreate([
+            'name' => 'Elvira Caballero Montemayor',
+            'email' => 'elvira.caballero.montemayor@not_mail.com',
+            'password' => Hash::make('123456')
+        ]);
+
+        User::updateOrCreate([
+            'name' => 'Luis Miguel Apodaca Rael',
+            'email' => 'luis.miguel.apodaca.rael@not_mail.com',
+            'password' => Hash::make('123456')
+        ]);
+
+        User::updateOrCreate([
+            'name' => 'Guadalupe Vela Fuentes',
+            'email' => 'guadalupe.vela.fuentes@not_mail.com',
+            'password' => Hash::make('123456')
+        ]);
+
+        User::updateOrCreate([
+            'name' => 'Gregorio Sisneros',
+            'email' => 'gregorio.rios.sisneros@not_mail.com',
+            'password' => Hash::make('123456')
+        ]);
     }
 }
