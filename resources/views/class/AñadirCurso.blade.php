@@ -16,6 +16,7 @@
 
         <form action="{{route('createCurso')}}" method="post" class="text-center">
             @csrf
+            <p> Por favor, añade el curso que quieras impartir</p>
             <input type="text" class="bg-light-blue text-center" name="name">
             <input type="number" class="bg-light-blue text-center" name="temas" style="background-color: #7f9bb6;" >
             <button type="submit" class="btn btn-primary" > SEND</button>

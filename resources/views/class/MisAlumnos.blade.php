@@ -13,15 +13,21 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Progreso Medio</th>
+                            <th>Nota Media</th>
+                            <th>Graduado</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($curso->inscripcions as $inscripcion)
                             <tr>
-                                <td>{{ $inscripcion->user_id }}</td>
                                 <td>{{ $inscripcion->user->name }}</td>
+                                <td>{{ $inscripcion->user->email }}</td>
+                                <td>{{ $inscripcion->user->progresomedio }}</td>
+                                <td>{{ $inscripcion->user->notamedia }}</td>
+                                <td>{{ $inscripcion->user->graduado }}</td>
                             </tr>
                         @endforeach
                         </tbody>
