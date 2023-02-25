@@ -22,6 +22,7 @@
             @endforeach
             </tbody>
         </table>
+        <a href="{{ route('exportar') }}" class="btn btn-primary" >Exportar Mis Cursos Creados</a>
     </div>
 
 @endsection

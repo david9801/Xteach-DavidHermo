@@ -39,7 +39,6 @@
                 </div>
             </div>
         @endforeach
-        <a href="{{ route('exportar') }}" class="btn btn-primary">Exportar a Excel</a>
 
     </div>
 

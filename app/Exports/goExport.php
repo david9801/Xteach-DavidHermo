@@ -30,7 +30,8 @@ class goExport implements FromCollection, WithHeadings
         return [
             'ID',
             'Curso',
-            'Cantidad de Temas'
+            'Cantidad de Temas',
+            'user_id'
         ];
     }
 }
