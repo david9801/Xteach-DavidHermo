@@ -85,6 +85,9 @@
                                                         <li class="nav-item">
                                                             <a class="nav-link active" aria-current="page" href="{{route('showmedia')}}"> Nota Media de Tus Alumnos</a>
                                                         </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link active" aria-current="page" href="{{route('showprogreso')}}"> Progreso Medio de Tus Alumnos</a>
+                                                        </li>
                                                     @endif
                                                 @endauth
                                                 @auth()

@@ -37,4 +37,12 @@ class AdminController extends Controller
         $inscripciones = Inscripcion::all();
         return view('class.NotaMediaMisAlumnos', compact('cursos', 'alumnos', 'inscripciones'));
     }
+    public function progresoMedio()
+    {
+        //para mostrar los alumnos de un admin(profesor)
+        $cursos = Curso::where('user_id', Auth::user()->id)->get();
+        $alumnos = User::all();
+        $inscripciones = Inscripcion::all();
+        return view('class.ProgresoMedioMisAlumnos', compact('cursos', 'alumnos', 'inscripciones'));
+    }
 }
