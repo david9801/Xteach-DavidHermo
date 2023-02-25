@@ -25,9 +25,13 @@
                             <tr>
                                 <td>{{ $inscripcion->user->name }}</td>
                                 <td>{{ $inscripcion->user->email }}</td>
-                                <td>{{ $inscripcion->user->progresomedio }}</td>
-                                <td>{{ $inscripcion->user->notamedia }}</td>
-                                <td>{{ $inscripcion->user->graduado }}</td>
+                                <td>{{ $inscripcion->progreso_medio }}</td>
+                                <td>{{ $inscripcion->nota_media }}</td>
+                                <td>
+                                    @if ($inscripcion->superado == 1)
+                                        SUPERADO
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
