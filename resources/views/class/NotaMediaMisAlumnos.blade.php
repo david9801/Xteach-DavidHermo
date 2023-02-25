@@ -19,11 +19,29 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($curso->inscripcions as $inscripcion)
+                        @php
+                            $notas = [];
+                            $inscripciones = $curso->inscripcions;
+                            foreach ($inscripciones as $inscripcion) {
+                                $nota = $inscripcion->nota_media;
+                                $alumno = $inscripcion->user;
+                                if (array_key_exists($alumno->id, $notas)) {
+                                    $notas[$alumno->id]['sum'] += $nota;
+                                    $notas[$alumno->id]['count']++;
+                                } else {
+                                    $notas[$alumno->id] = ['sum' => $nota, 'count' => 1];
+                                }
+                            }
+                        @endphp
+                        @foreach ($notas as $id => $nota)
+                            @php
+                                $alumno = App\Models\User::findOrFail($id);
+                                $nota_media = $nota['sum'] / $nota['count'];
+                            @endphp
                             <tr>
-                                <td>{{ $inscripcion->user->name }}</td>
-                                <td>{{ $inscripcion->user->email }}</td>
-                                <td>{{ $inscripcion->nota_media }}</td>
+                                <td>{{ $alumno->name }}</td>
+                                <td>{{ $alumno->email }}</td>
+                                <td>{{ $nota_media }}</td>
                             </tr>
                         @endforeach
                         </tbody>
