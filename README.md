@@ -72,9 +72,9 @@ Ejecutando ese seeder ya ejecutas Curso,Inscripcion, Roles y User.
 Hay 2 roles, admin y alumno, cada rol tiene unas funcionalidades distintas.
 
 
-Un admin puede subir temas, ver sus cursos, ver sus alumnos por curso y sus notas
+Un admin puede subir temas, ver sus cursos, ver sus alumnos por curso y sus notas, ver la nota media en sus cursos, y ver el progreso medio en sus cursos.
+También puede exportar a excel sus cursos, y se pueden implementar muchas mas funcionalidades.
 
 
 
-
-Un alumno puede inscribirse a un curso, obtener notas ...
+Un alumno puede inscribirse a un curso, terminar curso, obtener curso....
