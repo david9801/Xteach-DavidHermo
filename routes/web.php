@@ -5,6 +5,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ExcelController;
+use App\Exports\goExport;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +44,5 @@ Route::get('show-alumnos-admin',[AdminController::class,'index'])->name('showalu
 
 
 Route::get('/mis-cursos-superados',[CursoController::class,'showmycursossuperados'])->name('miperfil')->middleware('auth');
+
+Route::get('/exportar-cursos', [ExcelController::class, 'goExport'])->name('exportar')->middleware('auth');
