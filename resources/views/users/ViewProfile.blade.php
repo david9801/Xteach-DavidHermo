@@ -12,8 +12,21 @@
                 @endforeach
             </ul>
         @else
-            <p>No ha superado ningún curso.</p>
+            <p>No ha superado ningún curso!</p>
         @endif
+
+        <h2>Cursos aprobados:</h2>
+        @if (count($cursosnombres) > 0)
+            <ul>
+                @foreach ($cursosnombres as $nombre)
+                    <li>{{ $nombre }}</li>
+                @endforeach
+            </ul>
+        @else
+            <p>No ha aprobado ningún curso!</p>
+        @endif
+
+
     </div>
 
 @endsection

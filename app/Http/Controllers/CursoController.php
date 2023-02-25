@@ -77,7 +77,18 @@ class CursoController extends Controller
     public function doingcurso(Request $request, $id)
     {
         //metodo para realizar las acciones necesarias para que un alumno supere un curso
+        //aqui habria que implementar seguramente mas funciones para visualizar presentaciones con botones para ir
+        //superandolas y etc
+        //Lo dejo para una futura implementacion
+        //Buscamos cada inscripcion por su id,
+        //y cada curso por curso_id asociada a la inscripcion (para validar que no se pase de temas el alumno)
         $inscripcion = Inscripcion::find($id);
+        $curso = Curso::find($inscripcion->curso_id);
+
+        $request->validate([
+            'nota_media' => 'required|numeric|min:0|max:100',
+            'progreso_medio' => 'required|integer|min:0|max:' . $curso->temas
+        ]);
         $inscripcion->nota_media = $request->input('nota_media');
         $inscripcion->progreso_medio = $request->input('progreso_medio');
 
@@ -100,14 +111,21 @@ class CursoController extends Controller
         //inscripciones del usuario(alumno) que han sido superadas
         $inscripciones = $user->inscripcions()->where('superado', true)->get();
 
-        // Obtén los nombres de los cursos correspondientes a las inscripciones
+        //nombres de los cursos correspondientes a las inscripciones
         $cursosNombres = [];
         foreach ($inscripciones as $inscripcion) {
             $cursoNombre = $inscripcion->curso->name;
             $cursosNombres[] = $cursoNombre;
         }
-
-        return view('users.ViewProfile', compact('cursosNombres'));
+        //Ahora obtengo los cursos aprobados por el alumno
+        $inscripcionesAprobadas = $user->inscripcions()->where('superado', true)->orWhere('graduado', true)->get();
+        //creo el array si no da problemas
+        $cursosnombres = [];
+        foreach ($inscripcionesAprobadas as $inscripcion) {
+            $cursonombre = $inscripcion->curso->name;
+            $cursosnombres[] = $cursonombre;
+        }
+        return view('users.ViewProfile', compact('cursosNombres','cursosnombres'));
     }
 
 
