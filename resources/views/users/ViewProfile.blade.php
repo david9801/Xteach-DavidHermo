@@ -1,32 +1,48 @@
 @extends('layout.app')
-@section('title', 'Ver perfil')
+@section('title', 'Mi Perfil Alumno')
 @section('content')
-
-    <div style="margin-top: 110px; text-align: center; ">
-        <p>Aqui mostrare datos que le pueden resultar de interes al alumno</p>
-        <h2>Cursos superados:</h2>
-        @if (count($cursosNombres) > 0)
-            <ul>
-                @foreach ($cursosNombres as $nombre)
-                    <li>{{ $nombre }}</li>
-                @endforeach
-            </ul>
-        @else
-            <p>No ha superado ningún curso!</p>
-        @endif
-
-        <h2>Cursos aprobados:</h2>
-        @if (count($cursosnombres) > 0)
-            <ul>
-                @foreach ($cursosnombres as $nombre)
-                    <li>{{ $nombre }}</li>
-                @endforeach
-            </ul>
-        @else
-            <p>No ha aprobado ningún curso!</p>
-        @endif
-
-
+    <div class="container" style="margin-top:100px;">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header text-center" style="background-color: #718096;">MIS CURSOS</div>
+                    <div class="card-body text-center" style="background-color: #c8ced7;">
+                        <p>Cursos del user {{ Auth::user()->name }}</p>
+                        <div class="card-deck">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3>Cursos Superados:</h3>
+                                    @if (count($cursosAprobadosNombres) > 0)
+                                        <ul>
+                                            @foreach ($cursosAprobadosNombres as $nombre)
+                                                <li>{{ $nombre }}</li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                        <p>No ha aprobado ningún curso aún</p>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3>Cursos Aprobados:</h3>
+                                    @if (count($cursosNombres) > 0)
+                                        <ul>
+                                            @foreach ($cursosNombres as $key => $nombre)
+                                                @if ($cursosNotas[$key] >= 50)
+                                                    <li>{{ $nombre }} (nota media: {{ $cursosNotas[$key] }})</li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                        <p>No ha superado ningún curso aún</p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
 @endsection

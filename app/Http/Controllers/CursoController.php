@@ -106,27 +106,39 @@ class CursoController extends Controller
 
     public function showmycursossuperados()
     {
-        //funcion para mostrar en una vista los cursos superados por el alumno
+        //funcion para mostrar en la vista viewprofile de users
+        // los cursos superados y aprobados por el alumno
         $user = Auth::user();
         //inscripciones del usuario(alumno) que han sido superadas
-        $inscripciones = $user->inscripcions()->where('superado', true)->get();
-
-        //nombres de los cursos correspondientes a las inscripciones
+        $inscripcionesSuperadas = $user->inscripcions()->where('superado', true)->get();
+        //nombres y notas medias de los cursos correspondientes a las inscripciones aprobadas
+        //creamos los array para que no pete
         $cursosNombres = [];
-        foreach ($inscripciones as $inscripcion) {
+        $cursosNotas = [];
+        //bucle for para obtener el nombre y la nota media de cada curso
+        foreach ($inscripcionesSuperadas as $inscripcion) {
             $cursoNombre = $inscripcion->curso->name;
+            $cursoNotaMedia = $inscripcion->nota_media;
             $cursosNombres[] = $cursoNombre;
+            $cursosNotas[] = $cursoNotaMedia;
         }
-        //Ahora obtengo los cursos aprobados por el alumno
+
+        //inscripciones del usuario(alumno) que han sido superadas
         $inscripcionesAprobadas = $user->inscripcions()->where('superado', true)->orWhere('graduado', true)->get();
-        //creo el array si no da problemas
-        $cursosnombres = [];
+
+        //nombres y notas medias de los cursos correspondientes a las inscripciones aprobadas o graduadas
+        $cursosAprobadosNombres = [];
+        $cursosAprobadosNotas = [];
         foreach ($inscripcionesAprobadas as $inscripcion) {
-            $cursonombre = $inscripcion->curso->name;
-            $cursosnombres[] = $cursonombre;
+            $cursoAprobadoNombre = $inscripcion->curso->name;
+            $cursoAprobadoNotaMedia = $inscripcion->nota_media;
+            $cursosAprobadosNombres[] = $cursoAprobadoNombre;
+            $cursosAprobadosNotas[] = $cursoAprobadoNotaMedia;
         }
-        return view('users.ViewProfile', compact('cursosNombres','cursosnombres'));
+
+        return view('users.ViewProfile', compact('cursosNombres', 'cursosNotas', 'cursosAprobadosNombres', 'cursosAprobadosNotas'));
     }
+
 
 
 }
