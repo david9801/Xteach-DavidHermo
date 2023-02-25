@@ -68,3 +68,13 @@ También ejecutar el siguiente comando desde la consola de comandos para no tene
 
 Ejecutando ese seeder ya ejecutas Curso,Inscripcion, Roles y User.
 
+## Como Navegar
+Hay 2 roles, admin y alumno, cada rol tiene unas funcionalidades distintas.
+
+
+Un admin puede subir temas, ver sus cursos, ver sus alumnos por curso y sus notas
+
+
+
+
+Un alumno puede inscribirse a un curso, obtener notas ...
