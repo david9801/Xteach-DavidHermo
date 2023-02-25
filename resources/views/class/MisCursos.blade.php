@@ -9,9 +9,10 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Curso</th>
-                <th scope="col">Nota media </th>
+                <th scope="col">Nota media sobre 100 </th>
                 <th scope="col">Progreso Medio</th>
                 <th scope="col">Superado</th>
+                <th scope="col">Graduado</th>
                 <th scope="col">Acciones</th>
             </tr>
             </thead>
@@ -21,11 +22,17 @@
                     <td scope="row">{{ $row->id }}</td>
                     <td> {{ $row->curso->name }}</td>
                     <td> {{$row->nota_media}} </td>
-                    <td>  {{$row->progreso_medio}}  </td>
+                    <td>  {{$row->progreso_medio}} temas de {{$row->curso->temas}}  </td>
                     <td>
                         @if ($row->superado == 1)
-                            superado
+                            SUPERADO
                         @endif
+                    </td>
+                    <td>
+                        @if ($row->superado == 1 && $row->nota_media >= 50)
+                            APROBADO
+                        @endif
+
                     </td>
                     <td>
                         <form action="{{ route('gocurso', $row->id) }}" method="POST">

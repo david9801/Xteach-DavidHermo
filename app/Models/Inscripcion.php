@@ -19,7 +19,8 @@ class Inscripcion extends Model
     ];
 
     protected $casts = [
-        'superado' => 'boolean'
+        'superado' => 'boolean',
+        'graduado' => 'boolean'
     ];
     //Establezco las relaciones, las cuales vienen dadas muy claras en el PDF
     //relacion uno a muchos (de una bbdd relacional)

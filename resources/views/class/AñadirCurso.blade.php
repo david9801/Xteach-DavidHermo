@@ -13,13 +13,13 @@
                 border-radius: 5px;
             }
         </style>
+        <p class="text-xl font-bold mb-4 text-center" style="font-size: xxx-large;">¡Por favor!¡Añade el curso que quieras impartir!</p>
 
         <form action="{{route('createCurso')}}" method="post" class="text-center">
             @csrf
-            <p> Por favor, añade el curso que quieras impartir</p>
-            <input type="text" class="bg-light-blue text-center" name="name">
-            <input type="number" class="bg-light-blue text-center" name="temas" style="background-color: #7f9bb6;" >
-            <button type="submit" class="btn btn-primary" > SEND</button>
+            <input type="text" class="bg-light-blue text-center" placeholder="Nombre del Curso" name="name">
+            <input type="number" class="bg-light-blue text-center" placeholder="Cantidad de Temas" name="temas" style="background-color: #7f9bb6;" >
+            <button type="submit" class="btn btn-primary" > Enviar</button>
         </form>
 
         @if ($errors->any())

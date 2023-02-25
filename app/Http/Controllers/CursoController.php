@@ -34,8 +34,12 @@ class CursoController extends Controller
         //validamos los datos de entrada de un curso
         //nombre y temas
         $request->validate([
-            'name' => 'required|max:25',
+            'name' => 'required|max:25|unique:cursos,name',
             'temas' => 'required|integer|between:1,1000'
+        ], [
+            'name.required' => 'Por favor, escribe un nombre para el curso',
+            'temas.required' => 'Por favor, indica cuántos temas tiene el curso',
+            'name.unique' => 'Lo sentimos!El nombre del curso ya existe, pruebe otro parecido!'
         ]);
         //añadimos el curso a nuestra bbdd
         $curso=new Curso();

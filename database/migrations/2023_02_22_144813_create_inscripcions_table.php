@@ -20,8 +20,9 @@ class CreateInscripcionsTable extends Migration
             $table->foreignId('user_id')
                 ->constrained('users');
             $table->float('nota_media')->nullable();
-            $table->integer('progreso_medio')->nullable();
+            $table->integer('progreso_medio')->default(0)->nullable();
             $table->boolean('superado')->default(false)->nullable();
+            $table->boolean('graduado')->default(false)->nullable();
         });
 
     }
