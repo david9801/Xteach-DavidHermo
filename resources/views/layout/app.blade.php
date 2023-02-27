@@ -46,6 +46,10 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{route('welcome')}}"> <i class="bi bi-house-door-fill"></i>   Inicio </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{route('aboutus')}}"> <i class="bi bi-house-door-fill"></i>   Contacto </a>
+                            </li>
+
                             @auth()
                                 @if(auth()->user()->hasRole('alumno'))
                                     <li class="nav-item">
