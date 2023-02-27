@@ -9,6 +9,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Curso</th>
+                <th scope="col">Documentos</th>
                 <th scope="col">Nota media sobre 100 </th>
                 <th scope="col">Progreso Medio</th>
                 <th scope="col">Superado</th>
@@ -21,6 +22,14 @@
                 <tr>
                     <td scope="row">{{ $row->id }}</td>
                     <td> {{ $row->curso->name }}</td>
+                    <td>
+                        @if($row->curso->archivo)
+                            <a href="{{ asset('storage/' .$row->curso->archivo) }}" target="_blank">{{ $row->curso->archivo }}</a>
+                        @else
+                            No subido
+                        @endif
+                    </td>
+
                     <td> {{$row->nota_media}} </td>
                     <td>  {{$row->progreso_medio}} temas de {{$row->curso->temas}}  </td>
                     <td>

@@ -3,7 +3,7 @@
 @section('content')
 
     <div id="div-welcome">
-        <h2>Cursos creados por el usuario</h2>
+        <h2 class="text-center">Cursos creados por el usuario</h2>
         <table  class="table" >
             <thead>
             <tr>
