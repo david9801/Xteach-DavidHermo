@@ -16,8 +16,8 @@ class goExport implements FromCollection, WithHeadings
     public function collection()
     {
 
-        //cursos del profesor actual
-        $cursos = Curso::where('user_id', auth()->user()->id)->get();
+        //cursos del profesor actual, solo queremos sacar id, name y cantidad de temas
+        $cursos = Curso::select('id', 'name','temas')->where('user_id', auth()->user()->id)->get();
         //todas las inscripciones y todos los users, tanto alumnos como profesores,
         //los profesores no estan inscritos en ningun curso asi que no hay problema
         $inscripciones = Inscripcion::all();
@@ -30,8 +30,7 @@ class goExport implements FromCollection, WithHeadings
         return [
             'ID',
             'Curso',
-            'Cantidad de Temas',
-            'user_id'
+            'Cantidad de Temas'
         ];
     }
 }
