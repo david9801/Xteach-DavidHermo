@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use App\Models\Inscripcion;
+use Illuminate\Http\UploadedFile;
 class CursoController extends Controller
 {
     public function index()
@@ -35,16 +36,28 @@ class CursoController extends Controller
         //nombre y temas
         $request->validate([
             'name' => 'required|max:25|unique:cursos,name',
-            'temas' => 'required|integer|between:1,1000'
-        ], [
+            'temas' => 'required|integer|between:1,1000',
+            'archivo' => 'required|mimes:ppt,pptx'
+            ],
+            [
             'name.required' => 'Por favor, escribe un nombre para el curso',
             'temas.required' => 'Por favor, indica cuántos temas tiene el curso',
-            'name.unique' => 'Lo sentimos!El nombre del curso ya existe, pruebe otro parecido!'
-        ]);
+            'name.unique' => 'Lo sentimos!El nombre del curso ya existe, pruebe otro parecido!',
+            'archivo.mimes' => 'Por favor, sube un archivo en formato PDF'
+            ]);
+
         //añadimos el curso a nuestra bbdd
         $curso=new Curso();
         $curso->name = $request->name;
         $curso->temas = $request->temas;
+        if ($request->hasFile('archivo'))
+            {
+                $archivo = $request->file('archivo');
+                $filename = $archivo->getClientOriginalName();
+                $path = $archivo->storeAs('public/', $filename);
+                // Actualizo el nombre de archivo en la base de datos
+                $curso->archivo = $filename;
+            }
         //le pasamos el user_id a la tabla cursos para saber que cursos ha subido cada profesor
         $curso->user_id = Auth::user()->id;
         $curso->save();

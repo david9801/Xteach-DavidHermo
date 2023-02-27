@@ -17,6 +17,7 @@ class CreateCursosTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('temas');
+            $table->string('archivo')->nullable();
             $table->foreignId('user_id')
                 ->constrained('users');
         });

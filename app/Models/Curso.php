@@ -12,6 +12,7 @@ class Curso extends Model
     protected $fillable = [
         'name',
         'temas',
+        'archivo',
         'user_id'
     ];
     //aqui defino relacion uno a muchos, un curso puede tener varias inscripciones, pues es de diferentes alumnos
