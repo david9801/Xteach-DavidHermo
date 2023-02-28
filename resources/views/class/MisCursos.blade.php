@@ -2,9 +2,8 @@
 @section('title', 'Mis cursos')
 @section('content')
 
-    <div id="div-welcome">
-
-        <table class="table" id="table-reserve">
+    <div>
+        <table class="table">
             <thead>
             <tr>
                 <th scope="col">ID</th>
