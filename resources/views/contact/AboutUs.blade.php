@@ -1,8 +1,8 @@
 @extends('layout.app')
 @section('title', 'Welcome')
 @section('content')
-    <style>
 
+    <style>
         #card-welcome {
             display: flex;
             align-items: center;
@@ -15,7 +15,6 @@
             margin-right: auto;
             border-radius: 20px;
             overflow: hidden;
-
         }
     </style>
 

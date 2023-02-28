@@ -1,14 +1,7 @@
 @extends('layout.app')
 @section('title', 'Welcome')
 @section('content')
-        <style>
-            #card-welcome{
-                font-size: 14px;
-                max-width: 25%;
-                background-color: #718096;
-                margin: auto;
-            }
-        </style>
+
 
     <div class="container text-center" id="div-welcome">
         <div class="card" style="font-size: 14px; max-width: 25%; background-color: #718096; margin: auto;">

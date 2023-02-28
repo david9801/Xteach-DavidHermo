@@ -2,7 +2,7 @@
 @section('title', 'Registro')
 @section('content')
 
-    <div style="margin-top: 80px;">
+    <div>
         <form action="{{route('register.store')}}" method="POST" id="div-registerform">
             @csrf
             <div class="mb-3 ">

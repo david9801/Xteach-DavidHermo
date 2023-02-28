@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('title', 'Entrar aquí')
 @section('content')
-    <div  style="margin-top: 80px;">
+    <div>
         <form id="div-loginform" action="{{route('dologin')}}" method="POST">
             @csrf
             <div class="mb-3">

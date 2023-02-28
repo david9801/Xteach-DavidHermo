@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <div style="margin-top: 80px;">
+    <div>
         <form id="div-registerformadmin" action="{{route('register.store.admin')}}" method="POST" >
             @csrf
             <div class="mb-3">
