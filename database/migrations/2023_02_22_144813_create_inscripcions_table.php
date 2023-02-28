@@ -21,6 +21,7 @@ class CreateInscripcionsTable extends Migration
                 ->constrained('users');
             $table->float('nota_media')->nullable();
             $table->integer('progreso_medio')->default(0)->nullable();
+            $table->float('porcentaje_medio')->default(0)->nullable();
             $table->boolean('superado')->default(false)->nullable();
             $table->boolean('graduado')->default(false)->nullable();
         });

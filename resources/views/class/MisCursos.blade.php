@@ -11,7 +11,7 @@
                 <th scope="col">Documentos</th>
                 <th scope="col">Nota media sobre 100 </th>
                 <th scope="col">Progreso </th>
-                <th scope="col">Progreso Medio</th>
+                <th scope="col">Porcentaje Progreso Medio</th>
                 <th scope="col">Superado</th>
                 <th scope="col">Graduado</th>
                 <th scope="col">Acciones</th>
@@ -32,7 +32,7 @@
 
                     <td> {{$row->nota_media}} </td>
                     <td>  {{$row->progreso_medio}} temas de {{$row->curso->temas}}  </td>
-                    <td>  {{100*$row->progreso_medio/$row->curso->temas}}% </td>
+                    <td>  {{$row->porcentaje_medio}}% </td>
 
                     <td>
                         @if ($row->superado == 1)

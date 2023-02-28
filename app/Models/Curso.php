@@ -13,7 +13,8 @@ class Curso extends Model
         'name',
         'temas',
         'archivo',
-        'user_id'
+        'user_id',
+        'porcentaje_medio'
     ];
     //aqui defino relacion uno a muchos, un curso puede tener varias inscripciones, pues es de diferentes alumnos
     //cada inscripcion

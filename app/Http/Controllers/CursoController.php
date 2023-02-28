@@ -85,7 +85,7 @@ class CursoController extends Controller
         //obligamos a que el user deba elegir el curso, elegiremos un select
         $inscripcion->curso_id = $request->curso_id;
         $inscripcion->save();
-        return redirect()->route('welcome');
+        return redirect()->route('show');
     }
     public function doingcurso(Request $request, $id)
     {
@@ -104,7 +104,7 @@ class CursoController extends Controller
         ]);
         $inscripcion->nota_media = $request->input('nota_media');
         $inscripcion->progreso_medio = $request->input('progreso_medio');
-
+        $inscripcion->porcentaje_medio = number_format(100 * $request->input('progreso_medio') / $curso->temas, 2);
         $curso = Curso::find($inscripcion->curso_id);
         if ($inscripcion->progreso_medio >= $curso->temas) {
             $inscripcion->superado = true;

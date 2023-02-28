@@ -12,7 +12,7 @@
                 $progresos = [];
                 $inscripciones = App\Models\Inscripcion::all();
                 foreach ($inscripciones as $inscripcion) {
-                $progreso = $inscripcion->progreso_medio;
+                $progreso = $inscripcion->porcentaje_medio;
                 $alumno = $inscripcion->user;
                 if (array_key_exists($alumno->id, $progresos)) {
                 $progresos[$alumno->id]['sum'] += $progreso;
@@ -25,7 +25,7 @@
                 @foreach ($progresos as $id => $progreso)
                 @php
                 $alumno = App\Models\User::findOrFail($id);
-                $progreso_medio = $progreso['sum'] / $progreso['count'];
+                $progreso_medio_porcentaje = $progreso['sum'] / $progreso['count'];
                 @endphp
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading{{ $alumno->id }}">
@@ -42,19 +42,19 @@
                                 <thead>
                                 <tr>
                                     <th>Curso</th>
-                                    <th>Progreso Medio</th>
+                                    <th>Porcentaje Progreso Medio </th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach ($alumno->inscripcions as $inscripcion)
                                 <tr>
                                     <td>{{ $inscripcion->curso->name }}</td>
-                                    <td>{{ $inscripcion->progreso_medio }}</td>
+                                    <td>{{number_format($inscripcion->porcentaje_medio,2) }} %</td>
                                 </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            <p class="fw-bold my-2">Progreso Medio Total: {{ $progreso_medio }}</p>
+                            <p class="fw-bold my-2">Progreso Medio Total: {{number_format($progreso_medio_porcentaje,2) }} %</p>
                         </div>
                     </div>
                 </div>
