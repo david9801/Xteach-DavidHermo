@@ -116,6 +116,12 @@ class CursoController extends Controller
         return redirect()->back();
     }
 
+    public function deleteCurso($id)
+    {
+        $inscripcion = Inscripcion::findOrFail($id);
+        $inscripcion->delete();
+        return redirect()->back();
+    }
 
     public function showmycursossuperados()
     {
@@ -151,7 +157,4 @@ class CursoController extends Controller
 
         return view('users.ViewProfile', compact('cursosNombres', 'cursosNotas', 'cursosAprobadosNombres', 'cursosAprobadosNotas'));
     }
-
-
-
 }

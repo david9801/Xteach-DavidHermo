@@ -59,6 +59,11 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Actualizar</button>
                         </form>
+                        <form action="{{ route('desmatricularse', $row->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Desmatricularse</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

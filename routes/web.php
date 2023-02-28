@@ -41,6 +41,7 @@ Route::post('/curso-inscribirse', [CursoController::class, 'inscribirse'])->name
 Route::get('show-my-cursos',[CursoController::class,'showmycursos'])->name('show')->middleware('auth');
 
 Route::PUT('do-it/{id}',[CursoController::class,'doingcurso'])->name('gocurso')->middleware('auth');
+Route::DELETE('delete-curso-alumno/{id}',[CursoController::class,'deleteCurso'])->name('desmatricularse')->middleware('auth');
 
 Route::get('show-cursos-admin',[AdminController::class,'show'])->name('showcursosadmin')->middleware('auth');
 Route::get('show-alumnos-admin',[AdminController::class,'index'])->name('showalumnosadmin')->middleware('auth');
