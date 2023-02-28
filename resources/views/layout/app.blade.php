@@ -28,7 +28,7 @@
 
  <body>
     <div  class="bg-light1 d-flex flex-column min-vh-100" id="content" >
-        <nav class="navbar navbar-dark bg-dark fixed-top" >
+        <nav class="navbar navbar-dark bg-dark sticky-top" >
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{route('welcome')}}"> XTEACH LEARN WITH US <i class="bi bi-calendar-plus"></i></a>
                     @auth

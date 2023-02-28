@@ -3,17 +3,8 @@
 @section('content')
 
 
-    <style>
-        #table-reserve{
-            background-color: #fff;
-            color: #333;
-            border-radius: 5px;
-            overflow: hidden;
-            margin-top: 50px;
-        }
-    </style>
     <div>
-        <table class="table" id="table-reserve">
+        <table class="table bg-white">
             <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -31,19 +22,23 @@
             @endforeach
             </tbody>
         </table>
-        <form method="POST" action="{{ route('curso.inscribirse') }}" style="overflow: hidden; width: 15%;text-align: center;">
-            @csrf
-            <div class="form-group" >
-                <label for="curso_id">Selecciona un curso:</label>
-                <select class="form-control" id="curso_id" name="curso_id">
-                    @foreach ($cursos as $curso)
-                        <option value="{{ $curso->id }}">{{ $curso->name }}</option>
-                    @endforeach
-                </select>
+        <div class="row overflow-hidden mw-100">
+            <div class="col-10 col-md-8 m-auto bg-white p-4 border shadow-lg">
+                <form method="POST" action="{{ route('curso.inscribirse') }}" >
+                    @csrf
+                    <div class="form-group" >
+                        <label for="curso_id">Selecciona un curso:</label>
+                        <select class="form-control" id="curso_id" name="curso_id">
+                            @foreach ($cursos as $curso)
+                                <option value="{{ $curso->id }}">{{ $curso->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Inscribirse</button>
+                </form>
             </div>
-            <button type="submit" class="btn btn-primary">Inscribirse</button>
-        </form>
 
+    </div>
         @if ($errors->any())
             <div class="alert alert-danger d-flex justify-content-center">
                 <ul class="text-center">
