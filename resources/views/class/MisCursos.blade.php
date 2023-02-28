@@ -59,11 +59,31 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Actualizar</button>
                         </form>
-                        <form action="{{ route('desmatricularse', $row->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Desmatricularse</button>
-                        </form>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{$row->id}}" >
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="deleteModal{{$row->id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{$row->id}}" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel{{$row->id}}">Desmatricularse</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ¿Estás seguro que deseas desmatricularte de este curso?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                <form action="{{ route('desmatricularse', $row->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Desmatricularse</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                     </td>
                 </tr>
             @endforeach
