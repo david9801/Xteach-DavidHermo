@@ -22,9 +22,15 @@
 ### 1. Clonar repositorio de GITHUB
 
 `git glone [https://github.com/david9801/Xteach-DavidHermo.git](https://github.com/david9801/Xteach-DavidHermo/tree/withexams)`
+### 2. Deberás ver
+`git branch`
+
+  master
+* withexams
 
 
-### 2. Ejecutar migraciones del proyecto
+
+### 3. Ejecutar migraciones del proyecto
 
 En tu motor de base de datos requerido (en mi caso MySQL) debes crear una base de datos nueva e indicar los datos de acceso en el fichero .env:
 - Equipo/host
