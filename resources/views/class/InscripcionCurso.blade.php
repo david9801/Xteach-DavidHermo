@@ -4,7 +4,7 @@
 
 
     <div>
-        <table class="table bg-secondary">
+        <table class="table bg-secondary table-hover">
             <thead>
             <tr>
                 <th scope="col">ID</th>

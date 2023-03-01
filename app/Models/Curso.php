@@ -26,4 +26,8 @@ class Curso extends Model
         return $this->belongsTo(User::class, 'user_id');
         //un curso pertenece a un user_id profesor
     }
+    //un curso puede tener varios examenes
+    public function exams(){
+        return $this->hasMany(Exam::class,'curso_id');
+    }
 }

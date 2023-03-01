@@ -6,7 +6,7 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ExcelController;
-use App\Exports\goExport;
+use App\Http\Controllers\ExamenController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,13 +42,17 @@ Route::get('show-my-cursos',[CursoController::class,'showmycursos'])->name('show
 
 Route::PUT('do-it/{id}',[CursoController::class,'doingcurso'])->name('gocurso')->middleware('auth');
 Route::DELETE('delete-curso-alumno/{id}',[CursoController::class,'deleteCurso'])->name('desmatricularse')->middleware('auth');
+Route::get('/mis-cursos-superados',[CursoController::class,'showmycursossuperados'])->name('miperfil')->middleware('auth');
 
 Route::get('show-cursos-admin',[AdminController::class,'show'])->name('showcursosadmin')->middleware('auth');
 Route::get('show-alumnos-admin',[AdminController::class,'index'])->name('showalumnosadmin')->middleware('auth');
 Route::get('show-notaMedia-misAlumnos',[AdminController::class,'media'])->name('showmedia')->middleware('auth');
 Route::get('show-progresoMedio-misAlumnos',[AdminController::class,'progresoMedio'])->name('showprogreso')->middleware('auth');
 
-
-Route::get('/mis-cursos-superados',[CursoController::class,'showmycursossuperados'])->name('miperfil')->middleware('auth');
-
 Route::get('/exportar-cursos', [ExcelController::class, 'goExport'])->name('exportar')->middleware('auth');
+
+Route::get('/mis-asignaturas-examen',[ExamenController::class,'showexamenes'])->name('ir.posibles.examenes')->middleware('auth');
+Route::get('/ver-posible-examen/{id}', [ExamenController::class, 'verPosibleExamen'])->name('ver.examen.asignatura')->middleware('auth');
+Route::get('/crear-posible-examen/{id}', [ExamenController::class, 'crearPosibleExamen'])->name('crear.examen.asignatura')->middleware('auth');
+Route::post('/crear-examen/{id}', [ExamenController::class, 'create'])->name('createExam')->middleware('auth');
+Route::get('/exams/{curso_id}', [ExamenController::class, 'index'])->name('exams.index')->middleware('auth');

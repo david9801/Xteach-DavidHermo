@@ -3,7 +3,7 @@
 @section('content')
 
     <div>
-        <table class="table">
+        <table class="table table-hover table-striped">
             <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -91,7 +91,11 @@
             </tbody>
         </table>
 
-        @if ($errors->any())
+        <a href="{{ url('mis-asignaturas-examen') }}?_token={{ csrf_token() }}" class="btn btn-primary" >Ver Posibles Examenes</a>
+
+
+
+    @if ($errors->any())
             <div class="alert alert-danger d-flex justify-content-center">
                 <ul class="text-center">
                     @foreach ($errors->all() as $error)
