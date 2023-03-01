@@ -29,8 +29,8 @@ En tu terminal ejecuta:
 
 Deberás ver:      
 
- master
-* withexams 
+* master
+ withexams 
 
 
 ### 3. Ejecutar migraciones del proyecto
