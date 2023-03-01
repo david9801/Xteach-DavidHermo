@@ -21,7 +21,8 @@
 
 ### 1. Clonar repositorio de GITHUB
 
-`git glone https://github.com/david9801/Xteach-DavidHermo.git`
+`git glone [https://github.com/david9801/Xteach-DavidHermo.git](https://github.com/david9801/Xteach-DavidHermo/tree/withexams)`
+
 
 ### 2. Ejecutar migraciones del proyecto
 
