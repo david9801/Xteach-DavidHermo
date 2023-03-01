@@ -23,7 +23,17 @@
 
 `git glone https://github.com/david9801/Xteach-DavidHermo.git`
 
-### 2. Ejecutar migraciones del proyecto
+### 2. Asegurate que estás en la rama correcta 
+En tu terminal ejecuta:
+` git branch `
+
+Deberás ver:      
+
+`  master
+* withexams `
+
+
+### 3. Ejecutar migraciones del proyecto
 
 En tu motor de base de datos requerido (en mi caso MySQL) debes crear una base de datos nueva e indicar los datos de acceso en el fichero .env:
 - Equipo/host
