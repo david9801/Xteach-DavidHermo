@@ -24,21 +24,33 @@ class ExamenController extends Controller
         $exams = Exam::where('curso_id', $id)->get();
         return view('class.HacerExamen')->with(['curso' => $curso, 'exams' => $exams]);
     }
+
+
     public function crearPosibleExamen($id)
     {
-        //Funcion para ver una asingatura en concreto y realizar pruebas/examenes de ella
+        //Funcion para ver cursos
         $curso = Curso::findOrFail($id);
         return view('class.CrearExamen')->with('curso', $curso);
     }
+
 
     public function create(Request $request, $id)
     {
         //para crear un examen, de momento solo titulo
         $request->validate([
             'title' => 'required|max:25',
+            'questions.*.question' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    if (!is_string($value)) {
+                        $fail('La pregunta debe ser una cadena de caracteres');
+                    }
+                }
+            ],
         ], [
-            'title.required' => 'Por favor, ingresa un título para el examen.',
+            'title.required' => 'Por favor, ingresa un título para el examen',
         ]);
+
 
         // curso correspondiente al id de la url, el cual es el curso sobre el que se quiere crear/subir un examen
         $curso = Curso::find($id);
@@ -49,9 +61,22 @@ class ExamenController extends Controller
         $exam->curso_id = $curso->id;
         $exam->save();
 
+        // guardar las preguntas asociadas con el examen
+        foreach ($request->questions as $question) {
+            $exam->questions()->create([
+                'question' => $question['question'],
+                'answer1' => $question['answer1'],
+                'answer2' => $question['answer2'],
+                'answer3' => $question['answer3'],
+                'correct_answer' => $question['correct_answer']
+            ]);
+        }
+
         // redirigir al usuario a la página del curso al que pertenece el examen
         return redirect()->route('showcursosadmin', $curso->id);
     }
+
+
     public function index($curso_id)
     {
         $exams = Exam::where('curso_id', $curso_id)->get();
