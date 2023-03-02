@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Curso;
 use App\Models\Question;
 use App\Models\Answer;
+use App\Models\Inscripcion;
 class ExamenController extends Controller
 {
 
@@ -105,14 +106,17 @@ class ExamenController extends Controller
         $exam = Exam::findOrFail($id);
         $questions = $exam->questions;
         $user = auth()->user();
-        $inscripcionId = $exam->curso->inscripcion_id;
-//tengo un problema con inscripcion_id
+        $cursoId = $exam->curso_id;
+        $inscripcion = Inscripcion::where('user_id', $user->id)
+            ->where('curso_id', $cursoId)
+            ->firstOrFail();
+
         foreach ($questions as $question) {
             $userAnswer = $request->input('answer'.$question->id);
 
             $answer = new Answer([
                 'user_id' => $user->id,
-                'inscripcion_id' => $inscripcionId,
+                'inscripcion_id' => $inscripcion->id,
                 'question_id' => $question->id,
                 'answer' => $userAnswer
             ]);
@@ -121,6 +125,7 @@ class ExamenController extends Controller
 
         return view('contact.welcome');
     }
+
 
 
 
