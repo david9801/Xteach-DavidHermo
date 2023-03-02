@@ -57,3 +57,6 @@ Route::get('/crear-posible-examen/{id}', [ExamenController::class, 'crearPosible
 Route::get('/mostrar-posible-examen/{id}', [ExamenController::class, 'mostrarPosibleExamen'])->name('mostrar.examen.asignatura')->middleware('auth');
 Route::post('/crear-examen/{id}', [ExamenController::class, 'create'])->name('createExam')->middleware('auth');
 Route::get('/exams/{curso_id}', [ExamenController::class, 'index'])->name('exams.index')->middleware('auth');
+
+Route::get('/goexams/{id}', [ExamenController::class, 'showQuestion'])->name('showQuestions')->middleware('auth');
+Route::post('/submit-exam/{id}', [ExamenController::class, 'submitQuestion'])->name('submitQuestions')->middleware('auth');

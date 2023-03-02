@@ -6,6 +6,8 @@ use App\Models\Exam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Curso;
+use App\Models\Question;
+use App\Models\Answer;
 class ExamenController extends Controller
 {
 
@@ -90,6 +92,38 @@ class ExamenController extends Controller
         return view('class.HacerExamen')->with(['curso' => $curso, 'exams' => $exams]);
 
     }
+
+    public function showQuestion($id)
+    {
+        $exam = Exam::findOrFail($id);
+        return view('class.HacerTest', compact('exam'));
+    }
+
+
+    public function submitQuestion(Request $request, $id)
+    {
+        $exam = Exam::findOrFail($id);
+        $questions = $exam->questions;
+        $user = auth()->user();
+        $inscripcionId = $exam->curso->inscripcion_id;
+//tengo un problema con inscripcion_id
+        foreach ($questions as $question) {
+            $userAnswer = $request->input('answer'.$question->id);
+
+            $answer = new Answer([
+                'user_id' => $user->id,
+                'inscripcion_id' => $inscripcionId,
+                'question_id' => $question->id,
+                'answer' => $userAnswer
+            ]);
+            $answer->save();
+        }
+
+        return view('contact.welcome');
+    }
+
+
+
 
 
 

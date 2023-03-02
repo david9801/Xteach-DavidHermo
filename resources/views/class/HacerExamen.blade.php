@@ -8,12 +8,17 @@
                 <thead>
                 <tr>
                     <th scope="col">Título</th>
+                    <th scope="col">Accion</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($exams as $exam)
                     <tr>
                         <td>{{$exam->title}}</td>
+                        <td>
+                            <a href="{{route('showQuestions', $exam->id)}}" class="btn btn-primary"> Hacer TEST </a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
