@@ -33,4 +33,11 @@ class Inscripcion extends Model
     {
         return $this->belongsTo(Curso::class, 'curso_id');
     }
+    //una inscripcion puede tener varias respuestas
+    //tantas como preguntas haya
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
 }
