@@ -57,7 +57,14 @@ class ExamenController extends Controller
         $exams = Exam::where('curso_id', $curso_id)->get();
         return view('class.CrearExamen', compact('exams'));
     }
+    public function mostrarPosibleExamen($id)
+    {
+        //funcion que muestra los examenes creados por un profesor de una asignatura en concreto
+        $curso = Curso::findOrFail($id);
+        $exams = Exam::where('curso_id', $id)->get();
+        return view('class.HacerExamen')->with(['curso' => $curso, 'exams' => $exams]);
 
+    }
 
 
 

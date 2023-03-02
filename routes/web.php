@@ -54,5 +54,6 @@ Route::get('/exportar-cursos', [ExcelController::class, 'goExport'])->name('expo
 Route::get('/mis-asignaturas-examen',[ExamenController::class,'showexamenes'])->name('ir.posibles.examenes')->middleware('auth');
 Route::get('/ver-posible-examen/{id}', [ExamenController::class, 'verPosibleExamen'])->name('ver.examen.asignatura')->middleware('auth');
 Route::get('/crear-posible-examen/{id}', [ExamenController::class, 'crearPosibleExamen'])->name('crear.examen.asignatura')->middleware('auth');
+Route::get('/mostrar-posible-examen/{id}', [ExamenController::class, 'mostrarPosibleExamen'])->name('mostrar.examen.asignatura')->middleware('auth');
 Route::post('/crear-examen/{id}', [ExamenController::class, 'create'])->name('createExam')->middleware('auth');
 Route::get('/exams/{curso_id}', [ExamenController::class, 'index'])->name('exams.index')->middleware('auth');

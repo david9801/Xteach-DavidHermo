@@ -12,6 +12,7 @@
                 <th>Descripción</th>
                 <th>Temario </th>
                 <th>Crear Examen </th>
+                <th> Ver Examenes Creados</th>
 
             </tr>
             </thead>
@@ -25,8 +26,12 @@
                         <a    href="{{ asset('storage/' . $curso->archivo) }}" target="_blank">{{ $curso->archivo }}    </a>
                     </td>
                     <td>
-                        <a href="{{ route('crear.examen.asignatura', ['id' => $curso->id]) }}" target="_blank">Ver posible examen</a>
+                        <a href="{{ route('crear.examen.asignatura', ['id' => $curso->id]) }}" target="_blank">Crear</a>
                     </td>
+                    <td>
+                        <a href="{{ route('mostrar.examen.asignatura', ['id' => $curso->id]) }}" target="_blank">Mostrar</a>
+                    </td>
+
                 </tr>
             @endforeach
             </tbody>
