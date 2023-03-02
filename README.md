@@ -21,9 +21,16 @@
 
 ### 1. Clonar repositorio de GITHUB
 
-`git glone https://github.com/david9801/Xteach-DavidHermo.git`
+`git glone [https://github.com/david9801/Xteach-DavidHermo.git](https://github.com/david9801/Xteach-DavidHermo/tree/withexams)`
+### 2. Deberás ver
+`git branch`
 
-### 2. Ejecutar migraciones del proyecto
+  master
+* withexams
+
+
+
+### 3. Ejecutar migraciones del proyecto
 
 En tu motor de base de datos requerido (en mi caso MySQL) debes crear una base de datos nueva e indicar los datos de acceso en el fichero .env:
 - Equipo/host
@@ -62,7 +69,7 @@ También ejecutar el siguiente comando desde la consola de comandos para no tene
 
 
 `php artisan storage:link`
-
+  
 
 `php artisan db:seed`
 
@@ -78,3 +85,10 @@ También puede exportar a excel sus cursos, y se pueden implementar muchas mas f
 
 
 Un alumno puede inscribirse a un curso, terminar curso, obtener curso....
+## Info
+
+Aqui, todavia incompleto, se pretende subir examenes (ya hecho con name), queda que un profesor (es decir un admin) los pueda visualizar.
+Próxima implementacion: crear las tablas y modelos Question and Answer.
+Question tendrá una relación 1:M con Exam (un examen puede tener muchas preguntas pero una pregunta pertenece a un solo examen
+)
+Answer tendrá una relación 1:M con Question ( una pregunta tendrá varias respuestas-en funcion de los alumnos que hagan el examen- , pero una respuesta pertenece a una sola pregunta). Habrá que relacionar luego esto con el modelo User o Inscripcion
