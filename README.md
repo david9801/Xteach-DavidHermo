@@ -69,7 +69,7 @@ También ejecutar el siguiente comando desde la consola de comandos para no tene
 
 
 `php artisan storage:link`
-
+  
 
 `php artisan db:seed`
 
@@ -89,5 +89,6 @@ Un alumno puede inscribirse a un curso, terminar curso, obtener curso....
 
 Aqui, todavia incompleto, se pretende subir examenes (ya hecho con name), queda que un profesor (es decir un admin) los pueda visualizar.
 Próxima implementacion: crear las tablas y modelos Question and Answer.
-Question tendrá una relación 1:M con Exam (un examen puede tener muchas preguntas pero una pregunta pertenece a un solo alumno)
+Question tendrá una relación 1:M con Exam (un examen puede tener muchas preguntas pero una pregunta pertenece a un solo examen
+)
 Answer tendrá una relación 1:M con Question ( una pregunta tendrá varias respuestas-en funcion de los alumnos que hagan el examen- , pero una respuesta pertenece a una sola pregunta). Habrá que relacionar luego esto con el modelo User o Inscripcion
