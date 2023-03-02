@@ -96,6 +96,7 @@ class ExamenController extends Controller
 
     public function showQuestion($id)
     {
+        //funcion que muestra la vista de hacer cada test en particular,llamada con un href
         $exam = Exam::findOrFail($id);
         return view('class.HacerTest', compact('exam'));
     }
@@ -103,6 +104,8 @@ class ExamenController extends Controller
 
     public function submitQuestion(Request $request, $id)
     {
+        //funcion que guarda las answers de un exam de un usuario en concreto
+        //a traves de su inscripcion a un curso
         $exam = Exam::findOrFail($id);
         $questions = $exam->questions;
         $user = auth()->user();
@@ -122,14 +125,25 @@ class ExamenController extends Controller
             ]);
             $answer->save();
         }
+        //le paso al objeto la funcion calcular nota
+        $this->calculateScore($inscripcion);
 
         return view('contact.welcome');
     }
+    public function calculateScore(Inscripcion $inscripcion)
+    {
+        //funcion para calcular la nota de un test
+        $score = 0;
 
-
-
-
-
-
+        foreach ($inscripcion->answers as $answer) {
+            if ($answer->answer == $answer->question->correct_answer) {
+                $score++;
+            }
+        }
+        //la nota se calcula en %
+        $percentage = ($score / 5) * 100;
+        $inscripcion->nota_media = $percentage;
+        $inscripcion->save();
+    }
 
 }
