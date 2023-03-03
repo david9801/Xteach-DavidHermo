@@ -18,6 +18,7 @@
 </figure>
 
 ## Instalación
+Puedes probar la página con algún error al subirlo a un server en https://streamingesp.com/public/  , aunque es de la rama withexams
 
 ### 1. Clonar repositorio de GITHUB
 
