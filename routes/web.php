@@ -33,7 +33,7 @@ Route::post('log-out',[SessionsController::class,'logout'])->name('logout')->mid
 
 Route::get('showcursos',[CursoController::class,'index'])->name('curso.index')->middleware('auth');
 Route::get('/goto-addcurso', function () {
-    return view('class.AñadirCurso');
+    return view('class.AniadirCurso');
 })->name('goto-add-curso');
 Route::post('add-curso',[CursoController::class,'create'])->name('createCurso')->middleware('auth');
 Route::post('/curso-inscribirse', [CursoController::class, 'inscribirse'])->name('curso.inscribirse')->middleware('auth');
