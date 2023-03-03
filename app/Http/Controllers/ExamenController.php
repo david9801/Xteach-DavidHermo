@@ -23,10 +23,12 @@ class ExamenController extends Controller
     public function verPosibleExamen($id)
     {
         //Funcion para ver una asingatura en concreto y realizar pruebas/examenes de ella
+        //por un alumno
         $curso = Curso::findOrFail($id);
         $exams = Exam::where('curso_id', $id)->get();
-        return view('class.HacerExamen')->with(['curso' => $curso, 'exams' => $exams]);
+        return view('class.HacerExamenAlumno')->with(['curso' => $curso, 'exams' => $exams]);
     }
+
 
 
     public function crearPosibleExamen($id)
