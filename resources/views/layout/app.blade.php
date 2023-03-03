@@ -116,11 +116,23 @@
             </div>
         </nav>
         @yield('content')
+
+        <footer class="footer mt-auto py-3">
+            <div class="container text-center">
+                <span class="text-muted">e-learning 2023</span>
+                <a href="https://github.com/david9801" class="text-white ms-3 text-decoration-none" target="_blank">Mi GitHub</a>
+            </div>
+        </footer>
     </div>
     <!-- Para solventar problemas de version con este tipo de navbar-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+
+
+
  </body>
+
 
 </html>
 
