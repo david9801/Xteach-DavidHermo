@@ -137,8 +137,9 @@ class ExamenController extends Controller
         //le paso al objeto la funcion calcular nota
         $this->calculateScore($inscripcion);
 
-        return view('contact.welcome');
+        return view('exam.examSubmitted');
     }
+
     public function calculateScore(Inscripcion $inscripcion)
     {
         //funcion para calcular la nota de un test
