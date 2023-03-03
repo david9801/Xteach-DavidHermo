@@ -2,7 +2,7 @@
 @section('title', 'Mis cursos')
 @section('content')
 
-    <div>
+    <div class="table-responsive">
         <table class="table table-hover table-striped">
             <thead>
             <tr>
