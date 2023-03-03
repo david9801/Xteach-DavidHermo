@@ -17,7 +17,7 @@
                     <tr>
                         <td>{{$exam->title}}</td>
                         <td>
-                            <a href="{{route('showQuestions', $exam->id)}}" class="btn btn-primary"> Hacer TEST </a>
+                            <a href="{{route('showQuestions.admin', $exam->id)}}" class="btn btn-primary">VER TEST </a>
                         </td>
                     </tr>
                 @endforeach

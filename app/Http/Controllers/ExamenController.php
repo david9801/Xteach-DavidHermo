@@ -100,7 +100,14 @@ class ExamenController extends Controller
         $exam = Exam::findOrFail($id);
         return view('class.HacerTest', compact('exam'));
     }
-
+    public function showQuestionAdmin($id)
+    {
+        //funcion que muestra la vista de un examen para un profesor
+        //la diferencia con showQuestion es que en esta vista retornada el user profesor
+        //no puede hacer su propio examen
+        $exam = Exam::findOrFail($id);
+        return view('class.VerTestCreado', compact('exam'));
+    }
 
     public function submitQuestion(Request $request, $id)
     {

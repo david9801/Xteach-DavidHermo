@@ -60,3 +60,4 @@ Route::get('/exams/{curso_id}', [ExamenController::class, 'index'])->name('exams
 
 Route::get('/goexams/{id}', [ExamenController::class, 'showQuestion'])->name('showQuestions')->middleware('auth');
 Route::post('/submit-exam/{id}', [ExamenController::class, 'submitQuestion'])->name('submitQuestions')->middleware('auth');
+Route::get('/goexams-admin/{id}', [ExamenController::class, 'showQuestionAdmin'])->name('showQuestions.admin')->middleware('auth');
