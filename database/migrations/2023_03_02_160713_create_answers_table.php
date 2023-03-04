@@ -17,9 +17,11 @@ class CreateAnswersTable extends Migration
             $table->id();
             $table->string('answer');
             $table->foreignId('question_id')
-                ->constrained('questions');
+                ->constrained('questions')
+                ->onDelete('cascade');
             $table->foreignId('inscripcion_id')
-                ->constrained('inscripcions');
+                ->constrained('inscripcions')
+                ->onDelete('cascade');
         });
     }
 

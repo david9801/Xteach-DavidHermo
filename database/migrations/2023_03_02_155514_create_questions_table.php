@@ -21,7 +21,8 @@ class CreateQuestionsTable extends Migration
             $table->string('answer3');
             $table->string('correct_answer');
             $table->foreignId('exam_id')
-                ->constrained('exams');
+                ->constrained('exams')
+                ->onDelete('cascade');
         });
     }
 

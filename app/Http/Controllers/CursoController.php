@@ -99,10 +99,8 @@ class CursoController extends Controller
         $curso = Curso::find($inscripcion->curso_id);
 
         $request->validate([
-            'nota_media' => 'required|numeric|min:0|max:100',
-            'progreso_medio' => 'required|integer|min:0|max:' . $curso->temas
+            'progreso_medio' => 'integer|min:0|max:' . $curso->temas
         ]);
-        $inscripcion->nota_media = $request->input('nota_media');
         $inscripcion->progreso_medio = $request->input('progreso_medio');
         $inscripcion->porcentaje_medio = number_format(100 * $request->input('progreso_medio') / $curso->temas, 2);
         $curso = Curso::find($inscripcion->curso_id);

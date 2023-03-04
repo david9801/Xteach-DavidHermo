@@ -17,7 +17,8 @@ class CreateExamsTable extends Migration
             $table->id();
             $table->string('title');
             $table->foreignId('curso_id')
-                ->constrained('cursos');
+                ->constrained('cursos')
+                ->onDelete('cascade');
         });
     }
 
