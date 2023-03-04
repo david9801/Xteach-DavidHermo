@@ -1,13 +1,13 @@
 @extends('layout.app')
 @section('title', 'Mi Perfil Alumno')
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
+    <div class="container mt-4">
+        <div class="row justify-content-center mt-4">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center" style="background-color: #718096;">MIS CURSOS</div>
                     <div class="card-body text-center" style="background-color: #c8ced7;">
-                        <p>Cursos del user {{ Auth::user()->name }}</p>
+                        <p>Cursos del alumno {{ Auth::user()->name }}</p>
                         <div class="card-deck">
                             <div class="card">
                                 <div class="card-body">

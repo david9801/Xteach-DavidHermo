@@ -20,8 +20,8 @@
         };
     </script>
 
-    <div id="div-welcome">
-        <div class="container w-75 mt-auto">
+    <div class="mt-5">
+        <div class="container w-75 mt-4">
             <div class="row justify-content-center">
                 <div class="col-md-8 mx-auto">
                     <div class="card">
@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="row p-3">
                                     <div class="col">
-                                        <label for="archivo" class="form-label"> Archivo (.ppt o .pptx)</label>
+                                        <label for="archivo" class="form-label">  <i class="bi bi-file-easel-fill"></i> Archivo (.ppt o .pptx)</label>
                                         <input type="file" class="form-control-file" id="archivo" name="archivo">
                                         <small class="form-text text-muted">Solo se permiten archivos de Power Point (.pptx)</small>
                                     </div>

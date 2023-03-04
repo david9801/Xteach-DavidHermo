@@ -6,7 +6,9 @@
         <table class="table table-hover table-striped">
             <thead>
             <tr>
-                <th scope="col">ID</th>
+                <th colspan="8" scope="col" class="text-center h3">Datos de tus asignaturas matriculadas</th>
+            </tr>
+            <tr>
                 <th scope="col">Curso</th>
                 <th scope="col">Documentos</th>
                 <th scope="col">Nota media sobre 100 </th>
@@ -20,7 +22,6 @@
             <tbody>
             @foreach ($inscripciones as $row)
                 <tr>
-                    <td scope="row">{{ $row->id }}</td>
                     <td> {{ $row->curso->name }}</td>
                     <td>
                         @if($row->curso->archivo)
@@ -49,10 +50,6 @@
                         <form action="{{ route('gocurso', $row->id) }}" method="POST">
                             @csrf
                             @method('PUT')
-                            <div class="form-group">
-                                <label for="nota_media">Nota Media</label>
-                                <input type="text" class="form-control" id="nota_media" name="nota_media" value="{{ $row->nota_media }}">
-                            </div>
                             <div class="form-group">
                                 <label for="progreso_medio">Progreso Medio</label>
                                 <input type="text" class="form-control" id="progreso_medio" name="progreso_medio" value="{{ $row->progreso_medio }}">
@@ -91,9 +88,7 @@
             </tbody>
         </table>
 
-        <a href="{{ url('mis-asignaturas-examen') }}?_token={{ csrf_token() }}" class="btn btn-primary" >Ver Posibles Examenes</a>
-
-
+        <a href="{{ url('mis-asignaturas-examen') }}?_token={{ csrf_token() }}" class="btn btn-primary col-2 d-block mx-auto" >Ver Posibles Examenes</a>
 
     @if ($errors->any())
             <div class="alert alert-danger d-flex justify-content-center">

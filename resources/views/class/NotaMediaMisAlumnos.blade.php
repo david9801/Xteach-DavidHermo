@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <h2 class="my-4">Nota Media de Alumnos</h2>
+        <h2 class="my-4 text-center display-4">Nota Media de Alumnos</h2>
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="accordion" id="accordionExample">
