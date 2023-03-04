@@ -122,7 +122,6 @@ class ExamenController extends Controller
         $inscripcion = Inscripcion::where('user_id', $user->id)
             ->where('curso_id', $cursoId)
             ->firstOrFail();
-
         foreach ($questions as $question) {
             $userAnswer = $request->input('answer'.$question->id);
 
@@ -134,10 +133,10 @@ class ExamenController extends Controller
             ]);
             $answer->save();
         }
+
         //le paso al objeto la funcion calcular nota
         $this->calculateScore($inscripcion);
-
-        return view('exam.examSubmitted');
+        return view('exam.examSubmitted',compact('inscripcion','exam'));
     }
 
     public function calculateScore(Inscripcion $inscripcion)
@@ -150,10 +149,14 @@ class ExamenController extends Controller
                 $score++;
             }
         }
-        //la nota se calcula en %
+        //la nota se calcula en %, de momento solo hay 5 preguntas por test
         $percentage = ($score / 5) * 100;
+        //jugamos con coger la nota más alta
+
         $inscripcion->nota_media = $percentage;
         $inscripcion->save();
     }
+
+
 
 }
