@@ -24,6 +24,8 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('contact.AboutUs');
 })->name('aboutus');
+
+
 Route::resource('register',RegisterController::class);
 Route::get('register-admin',[RegisterController::class,'createadmin'])->name('register.create.admin');
 Route::post('goto-register-admin',[RegisterController::class,'storeadmin'])->name('register.store.admin');
