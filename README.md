@@ -28,7 +28,8 @@ Requesitos de PHP > 7 y PHP < 8
   master
 * withexams
 
-
+Ejecuta : 
+`composer require`
 
 ### 3. Ejecutar migraciones del proyecto
 
