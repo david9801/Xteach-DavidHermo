@@ -18,7 +18,7 @@
 </figure>
 
 ## Instalación
-Puedes probar la página con algún error al subirlo a un server en https://streamingesp.com/public/ 
+Requesitos de PHP > 7 y PHP < 8
 ### 1. Clonar repositorio de GITHUB
 
 `git glone [https://github.com/david9801/Xteach-DavidHermo.git](https://github.com/david9801/Xteach-DavidHermo/tree/withexams)`
