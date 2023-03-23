@@ -33,7 +33,9 @@ Deberás ver:
 * master
 
  withexams 
-
+En tu terminal ejecuta 
+` composer install`
+asegurandote que la version PHP es >7.0 & <8.0
 
 ### 3. Ejecutar migraciones del proyecto
 
@@ -43,7 +45,7 @@ En tu motor de base de datos requerido (en mi caso MySQL) debes crear una base d
 - Usuario 
 - Contraseña 
 
-En este proyecto ha sido empleado estos datos ( modificalos en el fichero .env )
+En este proyecto ha sido empleado estos datos ( modificalos en el fichero .env ). Si no tienes fichero .env , crealo a partir de .env.example
 
 ```
 DB_CONNECTION=mysql
