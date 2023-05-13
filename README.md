@@ -94,5 +94,6 @@ Un alumno supera un curso si finaliza el curso, es decir un progreso del 100%. U
 Un admin puede subir cursos, ver sus cursos creados, ver sus alumnos por curso y sus notas, ver la nota media en sus cursos, y ver el progreso medio en sus cursos.
 También puede exportar a excel sus cursos, y se pueden implementar muchas mas funcionalidades.
 
-## En la otra rama, aún no implementada, se añade la funcionalidad de subir examenes a la plataforma
+## En la otra rama, se añade la funcionalidad de subir examenes a la plataforma--
+## VER LA OTRA RAMA withshift ( es la completa)
 
